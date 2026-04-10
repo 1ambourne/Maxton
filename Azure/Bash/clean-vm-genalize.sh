@@ -360,7 +360,7 @@ step_5_remove_ssh_host_keys() {
 
 # Step 6
 # 做什麼：
-#   使用 waagent 執行 deprovision+user，移除 Azure provisioning 狀態與使用者相關痕跡。
+#   使用 waagent 執行 deprovision，移除 Azure provisioning 狀態。
 # 為什麼：
 #   讓此 VM 可作為 Azure 映像來源，避免新 VM 帶入舊實例狀態。
 # 不做風險：
@@ -370,7 +370,7 @@ step_5_remove_ssh_host_keys() {
 step_6_waagent_deprovision() {
   run_step \
     "Step 6 - Deprovision Azure agent / 執行 Azure Agent 去佈署清理" \
-    "waagent -force -deprovision+user"
+    "waagent -force -deprovision"
 }
 
 # ------------------------------------------------------------------------------
